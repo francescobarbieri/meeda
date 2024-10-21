@@ -8,29 +8,33 @@ import {
 } from '@/components/ui/chart';
 
 const chartData = [
-  { month: 'January', desktop: 186, mobile: 80 },
-  { month: 'February', desktop: 305, mobile: 200 },
-  { month: 'March', desktop: 237, mobile: 120 },
-  { month: 'April', desktop: 73, mobile: 190 },
-  { month: 'May', desktop: 209, mobile: 130 },
-  { month: 'June', desktop: 214, mobile: 140 },
-  { month: 'July', desktop: 186, mobile: 80 },
-  { month: 'August', desktop: 305, mobile: 200 },
-  { month: 'September', desktop: 237, mobile: 120 },
-  { month: 'October', desktop: 73, mobile: 190 },
-  { month: 'November', desktop: 209, mobile: 130 },
-  { month: 'December', desktop: 214, mobile: 140 }
+  { month: 'January', investments: 186000, properties: 80000, realestates: 250000},
+  { month: 'February', investments: 305000, properties: 200000, realestates: 250000},
+  { month: 'March', investments: 237000, properties: 120000, realestates: 250000},
+  { month: 'April', investments: 73000, properties: 190000, realestates: 250000},
+  { month: 'May', investments: 209000, properties: 130000, realestates: 250000},
+  { month: 'June', investments: 214000, properties: 140000, realestates: 250000},
+  { month: 'July', investments: 186000, properties: 80000, realestates: 250000},
+  { month: 'August', investments: 305000, properties: 200000, realestates: 250000},
+  { month: 'September', investments: 237000, properties: 120000, realestates: 250000},
+  { month: 'October', investments: 73000, properties: 190000, realestates: 250000},
+  { month: 'November', investments: 209000, properties: 130000, realestates: 250000},
+  { month: 'December', investments: 214000, properties: 140000, realestates: 250000}
 ];
 
 const chartConfig = {
-  desktop: {
-    label: 'Desktop',
+  investments: {
+    label: 'Investments',
     color: '#2563eb',
   },
-  mobile: {
-    label: 'Mobile',
+  properties: {
+    label: 'Properties',
     color: '#60a5fa',
   },
+  realestates: {
+    label: 'Real Estates',
+    color: '#e76f51',
+  }
 };
 
 const NetworthChart = () => {
@@ -47,8 +51,9 @@ const NetworthChart = () => {
         />
         <ChartTooltip content={<ChartTooltipContent hideLabel />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="desktop" stackId="a" fill="var(--color-desktop)" radius={[0, 0, 4, 4]} />
-        <Bar dataKey="mobile" stackId="a" fill="var(--color-mobile)" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="investments" stackId="a" fill="var(--color-investments)" radius={[0, 0, 4, 4]} />
+        <Bar dataKey="realestates" stackId="a" fill="var(--color-realestates)" />
+        <Bar dataKey="properties" stackId="a" fill="var(--color-properties)" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ChartContainer>
   );
