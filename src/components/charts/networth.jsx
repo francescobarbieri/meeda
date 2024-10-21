@@ -39,7 +39,7 @@ const chartConfig = {
 
 const NetworthChart = () => {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+    <ChartContainer config={chartConfig} className="min-h-[200px] w-full max-h-96">
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis

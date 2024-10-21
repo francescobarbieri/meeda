@@ -13,7 +13,7 @@ import {
   SidebarMenuSubItem,
 } from './ui/sidebar';
 
-import { Home, Search } from 'lucide-react';
+import { Home, PieChart, Search } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible';
 
 const items = [
@@ -27,7 +27,13 @@ const items = [
     title: 'Investments',
     url: '/',
     icon: Search,
-    subItems: [],
+    subItems: [
+      {
+        title: 'Asset Allocation',
+        url: '/investments',
+        icon: PieChart,
+      },
+    ],
   },
   {
     title: 'Cash Flow',
@@ -36,13 +42,14 @@ const items = [
     subItems: [
       {
         title: 'Transactions',
+        url: '/',
         icon: Search,
       },
     ],
   },
   {
     title: 'Reports',
-    url: '/',
+    url: '/test',
     icon: Search,
     subItems: [],
   },
@@ -73,7 +80,7 @@ const AppSidebar = () => {
                               <SidebarMenuSub>
                                 <SidebarMenuSubItem>
                                   <SidebarMenuSubButton asChild>
-                                    <a href="/">
+                                    <a href={subitem.url}>
                                       <span>{subitem.title}</span>
                                     </a>
                                   </SidebarMenuSubButton>
@@ -93,7 +100,7 @@ const AppSidebar = () => {
                   return (
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton asChild>
-                        <a href="/">
+                        <a href={item.url}>
                           <item.icon />
                           <span>{item.title}</span>
                         </a>
