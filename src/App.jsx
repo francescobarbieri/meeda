@@ -2,12 +2,12 @@ import React from 'react';
 import AppSidebar from './components/AppSidebar';
 import AppTopbar from './components/AppTopbar';
 import { SidebarProvider } from './components/ui/sidebar';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Investments from './pages/Investments';
 import Error404 from './pages/Error404';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <Dashboard />,
