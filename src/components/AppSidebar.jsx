@@ -25,27 +25,15 @@ const items = [
   },
   {
     title: 'Investments',
-    url: '/',
+    url: '/investments',
     icon: Search,
-    subItems: [
-      {
-        title: 'Asset Allocation',
-        url: '/investments',
-        icon: PieChart,
-      },
-    ],
+    subItems: [],
   },
   {
     title: 'Cash Flow',
     url: '/',
     icon: Search,
-    subItems: [
-      {
-        title: 'Transactions',
-        url: '/',
-        icon: Search,
-      },
-    ],
+    subItems: [],
   },
   {
     title: 'Reports',
@@ -68,8 +56,8 @@ const AppSidebar = () => {
                   return (
                     <>
                       {item.subItems.map((subitem) => (
-                        <Collapsible defaultOpen className="group/collapsible">
-                          <SidebarMenuItem key={subitem.title}>
+                        <Collapsible defaultOpen className="group/collapsible" key={subitem.title}>
+                          <SidebarMenuItem>
                             <CollapsibleTrigger asChild>
                               <SidebarMenuButton>
                                 <item.icon />

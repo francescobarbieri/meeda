@@ -6,6 +6,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
+import { useEffect, useState } from 'react';
 
 const chartData = [
   { month: 'January', investments: 186000, properties: 80000, realestates: 250000},
@@ -38,9 +39,23 @@ const chartConfig = {
 };
 
 const NetworthChart = () => {
+
+  const [data, setData] = useState([]);
+
+  useEffect( () => {
+    //window.electronAPI.insertData(chartData);
+    const fetchData = async () => {
+      const result = await window.electronAPI.getData();
+      setData(result);
+    };
+    fetchData();
+  }, [])
+  
+  console.log(data);
+
   return (
     <ChartContainer config={chartConfig} className="min-h-[200px] w-full max-h-96">
-      <BarChart accessibilityLayer data={chartData}>
+      <BarChart accessibilityLayer data={data}>
         <CartesianGrid vertical={false} />
         <XAxis
           dataKey="month"
